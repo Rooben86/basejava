@@ -13,7 +13,7 @@ public class MainString {
         String str1 = "abc";
         String str2 = "c";
         //String str3 = ("ab" + str2).intern();
-        String str3 = ("ab" + str2);
-        System.out.println(str3.equals(str1));
+        String str3 = ("ab" + str2).intern();
+        System.out.println(str3 == str1);
     }
 }
