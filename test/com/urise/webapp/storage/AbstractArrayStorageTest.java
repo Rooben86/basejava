@@ -61,7 +61,7 @@ public abstract class AbstractArrayStorageTest {
         assertEquals(3, array.length);
         assertEquals(RESUME_1, array[0]);
         assertEquals(RESUME_2, array[1]);
-        assertEquals(RESUME_3, array[3]);
+        assertEquals(RESUME_3, array[2]);
     }
 
     @Test
