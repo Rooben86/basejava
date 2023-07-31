@@ -10,16 +10,23 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public abstract class AbstractArrayStorageTest {
+public abstract class AbstractStorageTest {
     private Storage storage;
     private static final String UUID_1 = "uuid1";
-    public static final Resume RESUME_1 = new Resume(UUID_1);
     private static final String UUID_2 = "uuid2";
-    public static final Resume RESUME_2 = new Resume(UUID_2);
     private static final String UUID_3 = "uuid3";
-    public static final Resume RESUME_3 = new Resume(UUID_3);
 
-    public AbstractArrayStorageTest(Storage storage) {
+    private static final Resume RESUME_1;
+    private static final Resume RESUME_2;
+    private static final Resume RESUME_3;
+
+    static {
+        RESUME_1 = new Resume(UUID_1);
+        RESUME_2 = new Resume(UUID_2);
+        RESUME_3 = new Resume(UUID_3);
+    }
+
+    public AbstractStorageTest(Storage storage) {
         this.storage = storage;
     }
 
@@ -77,6 +84,7 @@ public abstract class AbstractArrayStorageTest {
         storage.save(RESUME_1);
     }
 
+    //TODO: remain only for Arrays Implementation
     @Test(expected = StorageException.class)
     public void saveOverflow() throws Exception {
         try {
