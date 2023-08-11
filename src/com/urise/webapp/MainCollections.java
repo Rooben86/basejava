@@ -6,11 +6,11 @@ import java.util.*;
 
 public class MainCollections {
     private static final String UUID_1 = "uuid1";
-    public static final Resume RESUME_1 = new Resume(UUID_1);
+    public static final Resume RESUME_1 = new Resume(UUID_1, "Name1");
     private static final String UUID_2 = "uuid2";
-    public static final Resume RESUME_2 = new Resume(UUID_2);
+    public static final Resume RESUME_2 = new Resume(UUID_2, "Name2");
     private static final String UUID_3 = "uuid3";
-    public static final Resume RESUME_3 = new Resume(UUID_3);
+    public static final Resume RESUME_3 = new Resume(UUID_3, "Name3");
     public static void main(String[] args) {
         Collection<Resume> collection = new ArrayList<>();
         collection.add(RESUME_1);
