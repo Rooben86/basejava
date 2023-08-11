@@ -12,20 +12,20 @@ public class MainCollections {
     private static final String UUID_3 = "uuid3";
     public static final Resume RESUME_3 = new Resume(UUID_3, "Name3");
     public static void main(String[] args) {
-        Collection<Resume> collection = new ArrayList<>();
-        collection.add(RESUME_1);
-        collection.add(RESUME_2);
-        collection.add(RESUME_3);
-
-        Iterator<Resume> iterator = collection.iterator();
-        while(iterator.hasNext()) {
-            Resume r = iterator.next();
-            System.out.println(r);
-            if(Objects.equals(r.getUuid(), UUID_1)) {
-                iterator.remove();
-            }
-        }
-        System.out.println(collection);
+//        Collection<Resume> collection = new ArrayList<>();
+//        collection.add(RESUME_1);
+//        collection.add(RESUME_2);
+//        collection.add(RESUME_3);
+//
+//        Iterator<Resume> iterator = collection.iterator();
+//        while(iterator.hasNext()) {
+//            Resume r = iterator.next();
+//            System.out.println(r);
+//            if(Objects.equals(r.getUuid(), UUID_1)) {
+//                iterator.remove();
+//            }
+//        }
+//        System.out.println(collection);
 
         Map<String, Resume> map = new HashMap<>();
         map.put(UUID_1, RESUME_1);
