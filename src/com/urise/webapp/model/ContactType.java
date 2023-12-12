@@ -6,7 +6,7 @@ public enum ContactType {
     SKYPE("Skype"),
     EMAIL("Email"),
     LINKEDIN("Linkedin Profile"),
-    GITHUB("Githum profile"),
+    GITHUB("Github profile"),
     STACKOVERFLOW("Stackoverflow profile"),
     HOME_PAGE("Personal page");
 
