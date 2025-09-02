@@ -25,7 +25,8 @@ public class ArrayStorage {
         }
     }
     public void save(Resume r) {
-        if (getIndex(r.getUuid()) != -1) {
+        int index = getIndex(r.getUuid());
+        if (index != -1) {
             System.out.println("Resume " + r.getUuid() + " already exists");
         } else if (size == storage.length) {
             System.out.println("Storage overflow");
