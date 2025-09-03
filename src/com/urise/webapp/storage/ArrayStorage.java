@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class ArrayStorage implements Storage {
     private static final int STORAGE_LIMIT = 10000;
-    private Resume[] storage = new Resume[STORAGE_LIMIT];
+    private final Resume[] storage = new Resume[STORAGE_LIMIT];
     private int size = 0;
 
     public void clear() {
@@ -20,7 +20,7 @@ public class ArrayStorage implements Storage {
     public void update(Resume r) {
         int index = getIndex(r.getUuid());
         if (index == -1) {
-            System.out.println("Resume " + r.getUuid() + " doesn't exist");
+            System.out.println("Resume doesn't exist");
         } else {
             storage[index] = r;
         }
@@ -28,7 +28,7 @@ public class ArrayStorage implements Storage {
     public void save(Resume r) {
         int index = getIndex(r.getUuid());
         if (index != -1) {
-            System.out.println("Resume " + r.getUuid() + " already exists");
+            System.out.println("Resume already exists");
         } else if (size == STORAGE_LIMIT) {
             System.out.println("Storage overflow");
         } else {
@@ -41,7 +41,7 @@ public class ArrayStorage implements Storage {
     public Resume get(String uuid) {
         int index = getIndex(uuid);
         if (index == -1) {
-            System.out.println("Resume "+uuid+" doesn't exist");
+            System.out.println("Resume doesn't exist");
             return null;
         } 
         return storage[index];
@@ -50,7 +50,7 @@ public class ArrayStorage implements Storage {
     public void delete(String uuid) {
         int index = getIndex(uuid);
         if (index == -1) {
-            System.out.println("Resume "+uuid+" doesn't exist");
+            System.out.println("Resume doesn't exist");
         } else {
             storage[index] = storage[size - 1];
             storage[size - 1] = null;
