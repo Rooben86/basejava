@@ -2,6 +2,8 @@ package com.urise.webapp.storage;
 
 import com.urise.webapp.model.Resume;
 
+import java.util.List;
+
 /**
  * Array based storage for Resumes
  */
@@ -11,6 +13,8 @@ public interface Storage {
     void save(Resume r);
     Resume get(String uuid);
     void delete(String uuid);
-    Resume[] getAll();
+    List<Resume> getAllSorted();
+    // return list sorted by name
+    // List<Resume> getAllSorted();
     int size();
 }
