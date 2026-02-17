@@ -10,7 +10,7 @@ public class JsonLocalDateAdapter implements JsonSerializer<LocalDate>, JsonDese
     @Override
     public JsonElement serialize(LocalDate localDate, Type type, JsonSerializationContext jsonSerializationContext) {
         String date = null;
-        return new JsonPrimitive(date.format(String.valueOf(DateTimeFormatter.ISO_LOCAL_DATE))); // "yyyy-mm-dd"
+        return new JsonPrimitive(date.format(String.valueOf(DateTimeFormatter.ofPattern("yyyy-MM")))); // "yyyy-mm"
     }
 
     @Override
