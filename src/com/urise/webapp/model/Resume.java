@@ -94,5 +94,6 @@ public class Resume implements Comparable<Resume>, Serializable {
     }
 
     public String gete() {
+        return null;
     }
 }
