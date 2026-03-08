@@ -3,12 +3,14 @@ package com.urise.webapp.storage;
 import com.urise.webapp.Config;
 import com.urise.webapp.exception.ExistStorageException;
 import com.urise.webapp.exception.NotExistStorageException;
+import com.urise.webapp.model.ContactType;
 import com.urise.webapp.model.Resume;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,9 +38,11 @@ public abstract class AbstractStorageTest {
         R3 = new Resume(UUID_3, "Name3");
         R4 = new Resume(UUID_4, "Name4");
 
-/*        R1.addContact(ContactType.MAIL, "mail1@ya.ru");
+        R1.addContact(ContactType.MAIL, "mail1@ya.ru");
         R1.addContact(ContactType.PHONE, "111 11 11");
-        R1.addSection(SectionType.OBJECTIVE, new TextSection("Objective1"));
+        R4.addContact(ContactType.PHONE, "222 22 22");
+        R4.addContact(ContactType.SKYPE, "Skype");
+        /*R1.addSection(SectionType.OBJECTIVE, new TextSection("Objective1"));
         R1.addSection(SectionType.PERSONAL, new TextSection("Personal data"));
         R1.addSection(SectionType.ACHIEVEMENT, new ListSection("achievement1", "achievement2", "achievement3"));
         R1.addSection(SectionType.QUALIFICATIONS, new ListSection("Java", "SQL", "JS"));
@@ -56,10 +60,10 @@ public abstract class AbstractStorageTest {
                         ),
                         new Organization("Organization12", "http://Organzation12.ru")
                 )
-        );
+        );*/
         R2.addContact(ContactType.SKYPE, "skype2");
         R2.addContact(ContactType.PHONE, "2122222");
-        R2.addSection(SectionType.EXPERIENCE,
+        /*R2.addSection(SectionType.EXPERIENCE,
                 new OrganizationSection(
                         new Organization("organization2", "http://organization2.ru",
                                 new Organization.Position(2023, Month.JANUARY, "position2", "content2"))));*/
@@ -91,6 +95,9 @@ public abstract class AbstractStorageTest {
     @Test
     public void update() {
         Resume newResume = new Resume(UUID_1, "New name");
+        R1.addContact(ContactType.MAIL, "mail1@google.com");
+        R1.addContact(ContactType.SKYPE, "New Skype");
+        R1.addContact(ContactType.MOBILE, "+7995 222 22 22");
         storage.update(newResume);
         assertTrue(newResume.equals(storage.get(UUID_1)));
     }
@@ -136,7 +143,9 @@ public abstract class AbstractStorageTest {
     public void getAllSorted() {
         List<Resume> list = storage.getAllSorted();
         assertEquals(3, list.size());
-            assertEquals(list, Arrays.asList(R1, R2, R3));
+        List<Resume> sortedResumes = Arrays.asList(R1, R2, R3);
+        Collections.sort(sortedResumes);
+        assertEquals(sortedResumes, list);
     }
 
     @Test(expected = NotExistStorageException.class)
