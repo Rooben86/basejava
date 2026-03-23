@@ -15,11 +15,11 @@ create table contact
 create unique index contact_uuid_type_index
     on contact (resume_uuid, type);
 
-create table section
-(
-    id          SERIAL PRIMARY KEY,
-    resume_uuid CHAR(36) not null references resume (uuid) on delete cascade,
-    type        TEXT     not null,
-    content     TEXT     not null
+CREATE TABLE section (
+     id          SERIAL PRIMARY KEY,
+     resume_uuid CHAR(36) NOT NULL REFERENCES resume (uuid) ON DELETE CASCADE,
+     type        TEXT     NOT NULL,
+     content     TEXT     NOT NULL
 );
-create unique index section_idx ON section (resume_uuid, type);
+CREATE UNIQUE INDEX section_idx
+    ON section (resume_uuid, type);
