@@ -85,7 +85,7 @@
                                 <dl>
                                     <dt>Описание:</dt>
                                     <dd>
-                                        <textarea name="${type}${counter.index}descrition" rows=2 cols=75>
+                                        <textarea name="${type}${counter.index}description" rows=2 cols=75>
                                                 ${pos.description}</textarea>
                                     </dd>
                                 </dl>
